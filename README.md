@@ -6,18 +6,12 @@ ianal
 
 If you run ianal in the root of a node project, it will print a table with the license information of your projects node and bower dependencies to `./licenses.md` and it will log `It's saved!` to console.
 
-Bugs: 
-- Requires that there are node and bower packages present to run
-
 Feature ideas:
 
 - support options for checking just node or bower licenses.
 - support option for specifying output file
 - add additional summary/analysis tables
 - add warning style for restrictive licenses
-
-
-
 
 
 ____

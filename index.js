@@ -46,14 +46,9 @@ var getLicenseInfo = function(config, callback) {
   };
 
   if (!fs.existsSync(root + '/' + config.path)){
-    return console.log('No ' + config.description + ' installed');
-  }
-
-  if (!fs.existsSync(root + '/' + config.path)){
-    return console.log('No ' + config.description + ' installed');
-  }
-
-  callback(fs.readdirSync(root + '/' + config.path).reduce(function(all, name){
+    callback('No ' + config.description + ' installed', null);
+  } else 
+  callback(null, fs.readdirSync(root + '/' + config.path).reduce(function(all, name){
     var mod = {};
     
     // Invalid module (such as .bin)
@@ -132,13 +127,19 @@ flattenKeysIntoArrayValues = function(array) {
   return newArray;
 };
 
-getLicenseInfo(nodeConfig, function(node){
-  var nodeTable = { table: { headers: ['Module', 'Package', 'License', 'Readme'], rows: flattenKeysIntoArrayValues(node.modules) } };
+getLicenseInfo(nodeConfig, function(err, nodeLicenseInfo){
+  var nodeTable;
+  if (!err) nodeTable = [{h1:'Node Modules'},{ table: { headers: ['Module', 'Package', 'License', 'Readme'], rows: flattenKeysIntoArrayValues(nodeLicenseInfo.modules) } }];
 
-  getLicenseInfo(bowerConfig, function(bower){
-    var bowerTable = { table: { headers: ['Module', 'Package', 'License', 'Readme'], rows: flattenKeysIntoArrayValues(bower.modules) } };
+  getLicenseInfo(bowerConfig, function(err, bowerLicenseInfo){
+    var bowerTable;
+    if (!err) bowerTable = [{h1:'Bower Modules'},{ table: { headers: ['Module', 'Package', 'License', 'Readme'], rows: flattenKeysIntoArrayValues(bowerLicenseInfo.modules) } }];
 
-    var markdown = json2md([{h1:'Node Modules'},nodeTable,{p:'<br>'},{h1:'Bower Modules'},bowerTable]);
+    var reports = [];
+    if (nodeTable) reports.push(nodeTable);
+    if (bowerTable) reports.push(bowerTable);
+
+    var markdown = json2md(reports);
 
     fs.writeFile('licenses.md', markdown, function(err) {
       if (err) throw err;
