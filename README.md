@@ -8,6 +8,8 @@ ianal
 
 If you run `ianal` in the root of a node project, it will print a table with the license information of your projects node and bower dependencies to `./licenses.md` and it will log `It's saved!` to console.
 
+I recommend having [Markdown Preview Plus](https://chrome.google.com/webstore/detail/markdown-preview-plus/febilkbfcbhebfnokafefeacimjdckgl) or similar browser extension installed for easily viewing rendered markdown in your browser.
+
 Feature ideas:
 
 - support options for checking just node or bower licenses.
