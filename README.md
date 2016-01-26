@@ -1,6 +1,10 @@
 # This is a fork of IANAL
 
-If you run ianal in the root of a node project, it will print a table with the license information of your projects node and bower dependencies to `./licenses.md`.
+To run 
+npm install (repository address) -g
+ianal
+
+If you run ianal in the root of a node project, it will print a table with the license information of your projects node and bower dependencies to `./licenses.md` and it will log `It's saved!` to console.
 
 Bugs: 
 - Requires that there are node and bower packages present to run
@@ -12,9 +16,7 @@ Feature ideas:
 - add additional summary/analysis tables
 - add warning style for restrictive licenses
 
-To install 
-npm install (repository address)
-ianal
+
 
 
 
