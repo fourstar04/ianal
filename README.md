@@ -1,5 +1,7 @@
 # This is a fork of IANAL
 
+The original ianal is great but I wanted it to produce a markdown file, and also check bower components for licenses.  I would like to expand the scope of the project to check bower licenses also and support a few simple options.
+
 To run
 ```shell 
 npm install (repository address) -g
