@@ -12,7 +12,9 @@
   },
   "author": "Francisco Presencia",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+      "json2md" : "*"
+    },
   "devDependencies": {},
   "repository": {
     "type": "git",

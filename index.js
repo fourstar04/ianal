@@ -140,7 +140,7 @@ getLicenseInfo(nodeConfig, function(node){
 
     var markdown = json2md([{h1:'Node Modules'},nodeTable,{p:'<br>'},{h1:'Bower Modules'},bowerTable]);
 
-    fs.writeFile('Licenses.md', markdown, function(err) {
+    fs.writeFile('licenses.md', markdown, function(err) {
       if (err) throw err;
       console.log('It\'s saved!');
     });
