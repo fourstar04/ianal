@@ -1,10 +1,12 @@
 # This is a fork of IANAL
 
-To run 
+To run
+```shell 
 npm install (repository address) -g
 ianal
+```
 
-If you run ianal in the root of a node project, it will print a table with the license information of your projects node and bower dependencies to `./licenses.md` and it will log `It's saved!` to console.
+If you run `ianal` in the root of a node project, it will print a table with the license information of your projects node and bower dependencies to `./licenses.md` and it will log `It's saved!` to console.
 
 Feature ideas:
 
